@@ -15,6 +15,12 @@
                     <p class="card-text">{{ $workshop->description }}</p>
                     <p><strong>Date :</strong> {{ $workshop->date }}</p>
                     <p><strong>Durée :</strong> {{ $workshop->duration }} minutes</p>
+                    <p><strong>Participants :</strong></p>
+                    <ul>
+                        @foreach($workshop->participants as $participant)
+                        <li>{{ $participant->name }} ({{ $participant->email }})</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

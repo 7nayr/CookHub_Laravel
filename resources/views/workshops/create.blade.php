@@ -32,6 +32,14 @@
             <label for="duration">Durée (en minutes)</label>
             <input type="number" class="form-control" id="duration" name="duration" value="{{ old('duration') }}" required>
         </div>
+        <div class="form-group">
+            <label for="participants">Participants</label>
+            <select multiple class="form-control" id="participants" name="participants[]">
+                @foreach($participants as $participant)
+                <option value="{{ $participant->id }}">{{ $participant->name }} ({{ $participant->email }})</option>
+                @endforeach
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Créer</button>
     </form>
 </div>
