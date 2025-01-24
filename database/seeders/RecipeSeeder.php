@@ -35,6 +35,8 @@ class RecipeController extends Controller
             'image' => $imagePath,
         ]);
 
+
+
         // Redirection avec un message de succès
         return redirect()->route('recipes.index')->with('success', 'Recette créée avec succès !');
     }

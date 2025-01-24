@@ -13,7 +13,6 @@ class RecipeController extends Controller
         return view('recipes.create');
     }
 
-    // Méthode pour enregistrer une nouvelle recette
     public function store(Request $request)
     {
         $request->validate([
@@ -23,8 +22,10 @@ class RecipeController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        // Sauvegarde de l'image
         $imagePath = $request->file('image')->store('images', 'public');
 
+        // Création de la recette
         Recipe::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
@@ -32,6 +33,7 @@ class RecipeController extends Controller
             'image' => $imagePath,
         ]);
 
+        // Redirection avec un message de succès
         return redirect()->route('recipes.index')->with('success', 'Recette créée avec succès !');
     }
 
