@@ -77,6 +77,25 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Supprimer</button>
                     </form>
+                    <a href="{{ route('recipes.edit', $recipe->id) }}" class="btn btn-warning mt-2">Modifier</a>
+                    <form action="{{ route('ratings.store', $recipe->id) }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Note</label>
+                            <select class="form-select" id="rating" name="rating" required>
+                                <option value="1">1 étoile</option>
+                                <option value="2">2 étoiles</option>
+                                <option value="3">3 étoiles</option>
+                                <option value="4">4 étoiles</option>
+                                <option value="5">5 étoiles</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Commentaire</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Soumettre</button>
+                    </form>
                 </div>
             </div>
         </div>

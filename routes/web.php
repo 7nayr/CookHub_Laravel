@@ -4,6 +4,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WorkshopController;
+use App\Http\Controllers\RatingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,5 +43,13 @@ Route::get('/workshops/create', [WorkshopController::class, 'create'])->name('wo
 
 // Route pour enregistrer un nouvel atelier
 Route::post('/workshops', [WorkshopController::class, 'store'])->name('workshops.store');
+
+
+Route::resource('recipes', RecipeController::class);
+Route::post('recipes/{recipe}/ratings', [RatingController::class, 'store'])->name('ratings.store');
+
+
+Route::resource('recipes', RecipeController::class);
+Route::post('recipes/{recipe}/ratings', [RatingController::class, 'store'])->name('ratings.store');
 
 require __DIR__.'/auth.php';
