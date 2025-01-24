@@ -11,9 +11,12 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description')->nullable();
-            $table->string('image')->nullable();
-            $table->text('instructions')->nullable(); // Ajoutez cette ligne
+            $table->text('description');
+            $table->string('category')->default('Uncategorized');
+            $table->text('ingredients');
+            $table->text('instructions');
+            $table->string('image');
+            $table->float('average_rating')->default(0);
             $table->timestamps();
         });
     }

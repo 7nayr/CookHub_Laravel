@@ -25,6 +25,14 @@
             <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
         </div>
         <div class="mb-3">
+            <label for="category" class="form-label">Catégorie</label>
+            <input type="text" class="form-control" id="category" name="category" required>
+        </div>
+        <div class="mb-3">
+            <label for="ingredients" class="form-label">Ingrédients</label>
+            <textarea class="form-control" id="ingredients" name="ingredients" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
             <label for="instructions" class="form-label">Instructions</label>
             <textarea class="form-control" id="instructions" name="instructions" rows="5" required></textarea>
         </div>

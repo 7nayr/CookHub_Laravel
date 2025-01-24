@@ -68,6 +68,10 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $recipe->title }}</h5>
                     <p class="card-text">{{ $recipe->description }}</p>
+                    <p><strong>Catégorie :</strong> {{ $recipe->category }}</p>
+                    <p><strong>Ingrédients :</strong> {{ $recipe->ingredients }}</p>
+                    <p><strong>Instructions :</strong> {{ $recipe->instructions }}</p>
+                    <p><strong>Note moyenne :</strong> {{ $recipe->average_rating }}</p>
                     <form action="{{ route('recipes.destroy', $recipe->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette recette ?');">
                         @csrf
                         @method('DELETE')

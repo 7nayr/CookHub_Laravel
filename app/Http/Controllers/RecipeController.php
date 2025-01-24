@@ -18,6 +18,8 @@ class RecipeController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
+            'category' => 'required|string|max:255',
+            'ingredients' => 'required|string',
             'instructions' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -29,8 +31,11 @@ class RecipeController extends Controller
         Recipe::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
+            'category' => $request->input('category'),
+            'ingredients' => $request->input('ingredients'),
             'instructions' => $request->input('instructions'),
             'image' => $imagePath,
+            'average_rating' => 0, // Initialement à 0
         ]);
 
         // Redirection avec un message de succès
