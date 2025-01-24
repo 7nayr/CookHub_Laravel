@@ -11,3 +11,4 @@
             <p class="card-text">{{ $recipe->description }}</p>
             <p><strong>Catégorie :</strong> {{ $recipe->category }}</p>
             <p><strong>Ingrédients :</strong> {{ $recipe->ingredients }}</p>
+@endsection

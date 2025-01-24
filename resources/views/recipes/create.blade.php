@@ -40,6 +40,10 @@
             <label for="image" class="form-label">Image</label>
             <input type="file" class="form-control" id="image" name="image" required>
         </div>
+        <div class="mb-3">
+            <label for="comment" class="form-label">Commentaire</label>
+            <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+        </div>
         <button type="submit" class="btn btn-primary">Créer la recette</button>
     </form>
 </div>

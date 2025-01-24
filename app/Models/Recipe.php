@@ -18,9 +18,4 @@ class Recipe extends Model
         'image',
         'average_rating'
     ];
-
-    public function ratings()
-    {
-        return $this->hasMany(Rating::class);
-    }
 }

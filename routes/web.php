@@ -51,5 +51,8 @@ Route::post('recipes/{recipe}/ratings', [RatingController::class, 'store'])->nam
 
 Route::resource('recipes', RecipeController::class);
 Route::post('recipes/{recipe}/ratings', [RatingController::class, 'store'])->name('ratings.store');
-
+Route::resource('recipes', RecipeController::class);
+Route::post('recipes/{recipe}/ratings', [RatingController::class, 'store'])->name('ratings.store');
+Route::get('ratings/{rating}/edit', [RatingController::class, 'edit'])->name('ratings.edit');
+Route::put('ratings/{rating}', [RatingController::class, 'update'])->name('ratings.update');
 require __DIR__.'/auth.php';
