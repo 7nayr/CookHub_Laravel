@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -12,6 +13,6 @@ class AdminMiddleware
             return $next($request);
         }
 
-        return redirect('/'); // Redirigez vers la page d'accueil si l'utilisateur n'est pas administrateur
+        return redirect('/');
     }
 }

@@ -38,18 +38,47 @@
     .card-title {
         font-size: 1.25rem;
         font-weight: bold;
+        color: #4CAF50; /* Green color for titles */
     }
     .card-text {
         flex-grow: 1;
         overflow: hidden;
         text-overflow: ellipsis;
+        color: #FF9800; /* Orange color for text */
     }
     .modal-header {
-        background-color: #007bff;
+        background-color: #673AB7; /* Purple color for modal header */
         color: white;
     }
     .btn-close {
         color: white;
+    }
+    .btn-success {
+        background-color: #8BC34A; /* Light green color for buttons */
+        border-color: #8BC34A;
+    }
+    .btn-danger {
+        background-color: #ff1100; /* Red color for delete button */
+        border-color: #F44336;
+    }
+    .btn-warning {
+        background-color: #FFC107; /* Yellow color for edit button */
+        border-color: #FFC107;
+    }
+    .btn-round {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: white;
+        background-color: #4CAF50; /* Green color for round button */
+        border: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 </style>
 
@@ -61,7 +90,8 @@
     <div class="row">
         @foreach($workshops as $workshop)
         <div class="col-md-4 mb-4">
-            <div class="card shadow-sm h-100">
+            <div class="card shadow-sm h-100 position-relative">
+                <button class="btn btn-round" id="register-btn-{{ $workshop->id }}" onclick="registerWorkshop('{{ $workshop->id }}')">V</button>
                 <div class="card-body">
                     <h5 class="card-title">{{ $workshop->name }}</h5>
                     <p class="card-text">{{ $workshop->description }}</p>
@@ -79,4 +109,12 @@
         @endforeach
     </div>
 </div>
+
+<script>
+    function registerWorkshop(workshopId) {
+        // Simulate registration process
+        alert('Vous vous êtes inscrit à l\'atelier ' + workshopId);
+        document.getElementById('register-btn-' + workshopId).style.display = 'none';
+    }
+</script>
 @endsection

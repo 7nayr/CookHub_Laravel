@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/recipes/{recipe}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
 });
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('recipes', RecipeController::class);
+});
+
 Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
 
 // Route pour afficher la liste des ateliers
@@ -50,6 +54,7 @@ Route::get('/workshops', [WorkshopController::class, 'index'])->name('workshops.
 
 // Route pour afficher le formulaire de création
 Route::get('/workshops/create', [WorkshopController::class, 'create'])->name('workshops.create');
+
 
 // Route pour enregistrer un nouvel atelier
 Route::post('/workshops', [WorkshopController::class, 'store'])->name('workshops.store');

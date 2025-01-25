@@ -24,23 +24,27 @@
                         @method('PUT')
                         <div class="mb-4">
                             <label for="title" class="block text-gray-700 font-bold mb-2">Titre de la recette</label>
-                            <input type="text" class="form-control block w-full px-3 py-2 border rounded" id="title" name="title" value="{{ $recipe->title }}" required>
+                            <input type="text" class="form-control block w-full px-3 py-2 border rounded" id="title" name="title" value="{{ old('title', $recipe->title) }}" required>
                         </div>
                         <div class="mb-4">
                             <label for="description" class="block text-gray-700 font-bold mb-2">Description</label>
-                            <textarea class="form-control block w-full px-3 py-2 border rounded" id="description" name="description" rows="3" required>{{ $recipe->description }}</textarea>
+                            <textarea class="form-control block w-full px-3 py-2 border rounded" id="description" name="description" rows="3" required>{{ old('description', $recipe->description) }}</textarea>
                         </div>
                         <div class="mb-4">
                             <label for="category" class="block text-gray-700 font-bold mb-2">Catégorie</label>
-                            <input type="text" class="form-control block w-full px-3 py-2 border rounded" id="category" name="category" value="{{ $recipe->category }}" required>
+                            <input type="text" class="form-control block w-full px-3 py-2 border rounded" id="category" name="category" value="{{ old('category', $recipe->category) }}" required>
                         </div>
                         <div class="mb-4">
                             <label for="ingredients" class="block text-gray-700 font-bold mb-2">Ingrédients</label>
-                            <textarea class="form-control block w-full px-3 py-2 border rounded" id="ingredients" name="ingredients" rows="3" required>{{ $recipe->ingredients }}</textarea>
+                            <textarea class="form-control block w-full px-3 py-2 border rounded" id="ingredients" name="ingredients" rows="3" required>{{ old('ingredients', $recipe->ingredients) }}</textarea>
                         </div>
                         <div class="mb-4">
                             <label for="instructions" class="block text-gray-700 font-bold mb-2">Instructions</label>
-                            <textarea class="form-control block w-full px-3 py-2 border rounded" id="instructions" name="instructions" rows="5" required>{{ $recipe->instructions }}</textarea>
+                            <textarea class="form-control block w-full px-3 py-2 border rounded" id="instructions" name="instructions" rows="5" required>{{ old('instructions', $recipe->instructions) }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="stars" class="block text-gray-700 font-bold mb-2">Étoiles</label>
+                            <input type="number" class="form-control block w-full px-3 py-2 border rounded" id="stars" name="stars" min="1" max="5" required>
                         </div>
                         <div class="mb-4">
                             <label for="image" class="block text-gray-700 font-bold mb-2">Image</label>

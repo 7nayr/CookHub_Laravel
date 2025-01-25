@@ -89,6 +89,7 @@
                         <p><strong>Catégorie :</strong> {{ $recipe->category }}</p>
                         <p><strong>Ingrédients :</strong> {{ $recipe->ingredients }}</p>
                         <p><strong>Instructions :</strong> {{ $recipe->instructions }}</p>
+                        <p><strong>Étoiles :</strong> {{ $recipe->etoiles }}</p>
                     </div>
                     <form action="{{ route('recipes.destroy', $recipe->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette recette ?');">
                         @csrf
