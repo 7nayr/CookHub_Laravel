@@ -58,6 +58,14 @@
             background-color: #e07c00;
             border-color: #e07c00;
         }
+        .btn-green {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-green:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
         .welcome-content {
             position: relative;
             z-index: 2;
@@ -84,6 +92,7 @@
             <img src="images/logo.png" alt="CookHub Logo"> <!-- Replace with your logo -->
             <div>
                 <a href="/recipes" class="btn btn-warning text-white">Voir les recettes</a>
+                <a href="{{ route('workshops.index') }}" class="btn btn-green text-white">Voir les ateliers</a>
                 @if (Auth::check())
                     <a href="/logout" class="btn btn-secondary"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
@@ -98,9 +107,6 @@
         <div class="welcome-content">
             <h1 style="font-size: 4rem;">Bienvenue sur CookHub</h1>
             <p style="font-size: 1.5rem;">La plateforme des passionnés de cuisine ! Découvrez des recettes uniques, partagez vos créations, et inspirez-vous de notre communauté.</p>
-            <div class="text-center">
-                <a href="{{ route('workshops.index') }}" class="btn btn-primary">Voir les ateliers</a>
-            </div>
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

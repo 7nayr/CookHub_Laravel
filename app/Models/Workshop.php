@@ -10,9 +10,5 @@ class Workshop extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'description', 'date', 'duration'];
-
-    public function participants()
-    {
-        return $this->belongsToMany(Participant::class, 'participant_workshop');
-    }
 }
+

@@ -82,4 +82,15 @@ class RecipeController extends Controller
         $recipes = Recipe::all();
         return view('recipes.index', compact('recipes'));
     }
+    public function destroy($id)
+    {
+        $recipe = Recipe::findOrFail($id);
+
+        if (Auth::user()->isAdmin() || Auth::id() === $recipe->user_id) {
+            $recipe->delete();
+            return redirect()->route('recipes.index')->with('success', 'Recette supprimée avec succès !');
+        }
+
+        return redirect()->route('recipes.index')->with('error', 'Vous n\'êtes pas autorisé à supprimer cette recette.');
+    }
 }
