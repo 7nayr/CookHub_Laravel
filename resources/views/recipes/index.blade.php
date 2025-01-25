@@ -34,6 +34,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        position: relative;
     }
     .card-title {
         font-size: 1.25rem;
@@ -50,6 +51,21 @@
     }
     .btn-close {
         color: white;
+    }
+    .toggle-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
     }
 </style>
 
@@ -68,9 +84,12 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $recipe->title }}</h5>
                     <p class="card-text">{{ $recipe->description }}</p>
-                    <p><strong>Catégorie :</strong> {{ $recipe->category }}</p>
-                    <p><strong>Ingrédients :</strong> {{ $recipe->ingredients }}</p>
-                    <p><strong>Instructions :</strong> {{ $recipe->instructions }}</p>
+                    <button class="toggle-btn" onclick="toggleDetails(this)">+</button>
+                    <div class="recipe-details" style="display: none;">
+                        <p><strong>Catégorie :</strong> {{ $recipe->category }}</p>
+                        <p><strong>Ingrédients :</strong> {{ $recipe->ingredients }}</p>
+                        <p><strong>Instructions :</strong> {{ $recipe->instructions }}</p>
+                    </div>
                     <form action="{{ route('recipes.destroy', $recipe->id) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette recette ?');">
                         @csrf
                         @method('DELETE')
@@ -91,4 +110,17 @@
         @endforeach
     </div>
 </div>
+
+<script>
+    function toggleDetails(button) {
+        const details = button.nextElementSibling;
+        if (details.style.display === "none") {
+            details.style.display = "block";
+            button.textContent = "-";
+        } else {
+            details.style.display = "none";
+            button.textContent = "+";
+        }
+    }
+</script>
 @endsection
