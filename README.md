@@ -1,66 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CookHub
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Bienvenue sur CookHub, une plateforme dédiée aux passionnés de cuisine. Ce projet permet aux utilisateurs de créer, partager et découvrir des recettes, ainsi que de participer à des ateliers culinaires.
 
-## About Laravel
+## Structure du Projet
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Fichiers de Vue (`resources/views`)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **layouts** : Contient les mises en page de base utilisées dans l'application.
+    - `app.blade.php` : Mise en page principale pour les utilisateurs connectés.
+    - `guest.blade.php` : Mise en page pour les utilisateurs non connectés.
+    - `navigation.blade.php` : Barre de navigation commune à toutes les pages.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **recipes** : Contient les vues liées aux recettes.
+    - `create.blade.php` : Formulaire de création de recette.
+    - `edit.blade.php` : Formulaire de modification de recette.
+    - `index.blade.php` : Liste des recettes.
+    - `show.blade.php` : Affichage détaillé d'une recette.
 
-## Learning Laravel
+- **workshops** : Contient les vues liées aux ateliers culinaires.
+    - `create.blade.php` : Formulaire de création d'atelier.
+    - `edit.blade.php` : Formulaire de modification d'atelier.
+    - `index.blade.php` : Liste des ateliers.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **auth** : Contient les vues d'authentification.
+    - `login.blade.php` : Formulaire de connexion.
+    - `register.blade.php` : Formulaire d'inscription.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Contrôleurs (`app/Http/Controllers`)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **RecipeController.php** : Gère les opérations CRUD (Create, Read, Update, Delete) pour les recettes.
+- **WorkshopController.php** : Gère les opérations CRUD pour les ateliers culinaires.
+- **Auth** : Contient les contrôleurs d'authentification.
+    - `AuthenticatedSessionController.php` : Gère les sessions utilisateur.
+    - `RegisteredUserController.php` : Gère l'inscription des utilisateurs.
+    - `ConfirmablePasswordController.php` : Gère la confirmation des mots de passe.
+    - `NewPasswordController.php` : Gère la réinitialisation des mots de passe.
 
-## Laravel Sponsors
+### Routes (`routes/web.php`)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Définit les routes de l'application.
+- Routes pour les recettes :
+    - `recipes.index` : Affiche la liste des recettes.
+    - `recipes.create` : Affiche le formulaire de création de recette.
+    - `recipes.store` : Enregistre une nouvelle recette.
+    - `recipes.edit` : Affiche le formulaire de modification de recette.
+    - `recipes.update` : Met à jour une recette existante.
+    - `recipes.destroy` : Supprime une recette.
+- Routes pour les ateliers :
+    - `workshops.index` : Affiche la liste des ateliers.
+    - `workshops.create` : Affiche le formulaire de création d'atelier.
+    - `workshops.store` : Enregistre un nouvel atelier.
+    - `workshops.edit` : Affiche le formulaire de modification d'atelier.
+    - `workshops.update` : Met à jour un atelier existant.
+    - `workshops.destroy` : Supprime un atelier.
 
-### Premium Partners
+## Installation
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+1. Clonez le dépôt :
+     ```bash
+     git clone https://github.com/votre-utilisateur/cookhub.git
+     ```
+2. Installez les dépendances :
+     ```bash
+     cd cookhub
+     composer install
+     npm install
+     ```
+3. Configurez l'environnement :
+     ```bash
+     cp .env.example .env
+     php artisan key:generate
+     ```
+4. Configurez la base de données dans le fichier `.env`.
+5. Exécutez les migrations et les seeders :
+     ```bash
+     php artisan migrate --seed
+     ```
+6. Démarrez le serveur de développement :
+     ```bash
+     php artisan serve
+     ```
 
-## Contributing
+## Contribution
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Les contributions sont les bienvenues ! Veuillez soumettre une pull request ou ouvrir une issue pour discuter des changements que vous souhaitez apporter.
 
-## Code of Conduct
+## Licence
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.

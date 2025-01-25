@@ -89,7 +89,7 @@
 <body>
     <section class="welcome-section">
         <div class="header">
-            <img src="images/logo.png" alt="CookHub Logo"> <!-- Replace with your logo -->
+            <img src="images/logo.png" alt="CookHub Logo">
             <div>
                 <a href="/recipes" class="btn btn-warning text-white">Voir les recettes</a>
                 <a href="{{ route('workshops.index') }}" class="btn btn-green text-white">Voir les ateliers</a>
